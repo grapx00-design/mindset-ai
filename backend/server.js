@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, "..")));
 app.use(express.json({ limit: "1mb" }));
 
 const client = new OpenAI({
@@ -119,6 +120,8 @@ Use previous conversation context when supplied. Do not invent personal facts. I
 `;
 
 app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "index.html"));
+});
   res.json({ message: "Mindset AI Backend is running!" });
 });
 
