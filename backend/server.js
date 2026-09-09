@@ -122,8 +122,6 @@ Use previous conversation context when supplied. Do not invent personal facts. I
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "index.html"));
 });
-  res.json({ message: "Mindset AI Backend is running!" });
-});
 
 app.get("/health", (req, res) => {
   res.json({ ok: true, service: "Mindset AI" });
